@@ -91,6 +91,9 @@ func translate(text, from, to string, withVerification bool, tries int, delay ti
 
 		if r.StatusCode == http.StatusOK {
 			break
+		} else {
+			tries--
+			time.Sleep(delay)
 		}
 
 		if r.StatusCode == http.StatusForbidden {
